@@ -54,7 +54,7 @@ npm start
 ```
 
 4. **Environment Variables**
-## Create .env file inside backend/
+# Create .env file inside backend/
 ```bash
 PORT=5000
 MONGO_URI=your_mongodb_connection
