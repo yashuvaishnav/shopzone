@@ -27,16 +27,15 @@ This project is created for practice and learning full-stack development end-to-
 ---
 
 ## 📂 Project Structure
-
-
----
-
-## 🛠️ Installation & Setup
-
+```yml
 ecommerce-app/
 │── backend/ # Express + MongoDB + TypeScript
 │── frontend/ # React + Redux + Tailwind + TypeScript
 │── README.md
+
+---
+
+## 🛠️ Installation & Setup
 
 1. **Clone Repo**
    ```bash
@@ -48,12 +47,14 @@ ecommerce-app/
 cd backend
 npm install
 npm run dev
+```
 
 3. **Frontend Setup**
 ```bash
 cd frontend
 npm install
 npm start
+```
 
 4. **Environment Variables**
 ## Create .env file inside backend/
@@ -61,6 +62,6 @@ npm start
 PORT=5000
 MONGO_URI=your_mongodb_connection
 JWT_SECRET=your_secret
-
+```
 
 
