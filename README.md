@@ -25,7 +25,7 @@ This project is created for practice and learning full-stack development end-to-
 ---
 
 ## 📂 Project Structure
-```bash
+```yaml
 ecommerce-app/
 │── backend/ # Express + MongoDB + TypeScript
 │── frontend/ # React + Redux + Tailwind + TypeScript
