@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import Navbar from './components/Navbar'
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-       <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <h1 className="text-4xl font-extrabold text-white">
-        Hello Tailwind + Vite!
-      </h1>
-    </div>
+      <div className='border '>
+        <Navbar/>
+        <AppRoutes/>
+      </div>
     </>
   )
 }
