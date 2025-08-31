@@ -5,9 +5,12 @@ export interface IProduct extends Document {
   description: string;
   price: number;
   image: string;
-  category: string;
+  category: string; // e.g. "clothing", "electronics"
   brand: string;
   countInStock: number;
+  gender?: string;
+  size?: string; 
+  ageGroup?: string;
 }
 
 const productSchema = new Schema<IProduct>(
@@ -33,6 +36,7 @@ const productSchema = new Schema<IProduct>(
     category: {
       type: String,
       required: true,
+      enum: ["clothing", "electronics", "other"],
     },
     brand: {
       type: String,
@@ -43,8 +47,28 @@ const productSchema = new Schema<IProduct>(
       required: true,
       default: 0,
     },
+
+    // Clothing-specific fields (optional)
+    gender: {
+      type: String,
+      enum: ["male", "female", "unisex"],
+      required:false
+    },
+    size: {
+      type: String,
+      enum: ["XS", "S", "M", "L", "XL", "XXL"],
+      required:false
+    },
+    ageGroup: {
+      type: String,
+      enum: ["kids", "teens", "adults"],
+      required:false
+    },
   },
   { timestamps: true }
 );
 
 export default mongoose.model<IProduct>("Product", productSchema);
+
+
+
