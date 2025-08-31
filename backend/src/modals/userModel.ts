@@ -31,3 +31,9 @@ const userSchema = new mongoose.Schema<IUser>(
 );
 
 export default mongoose.model<IUser>("user", userSchema);
+
+
+// {
+//     "email":"adminYash@gmail.com",
+//     "password":"admin1234"
+// }

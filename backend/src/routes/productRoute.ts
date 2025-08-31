@@ -1,41 +1,22 @@
 import express from "express";
-import { protect, admin } from "../middelwares/authMiddelware";
-import Product from "../modals/productModel";
+import {
+  getProducts,
+  getProductById,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/productControllar";
+import { protect, admin } from "../middelwares/authMiddelware"; // assuming you already made these
 
 const productRouter = express.Router();
 
-// Get all products
-productRouter.get("/", async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json(products);
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-});
+// Public routes
+productRouter.get("/", getProducts);
+productRouter.get("/:id", getProductById);
 
-// Create a product (Admin only)
-productRouter.post("/addProduct", protect, admin, async (req, res) => {
-  try {
-    const { name, description, price, image, category, brand, countInStock } =
-      req.body;
-    console.log("name", name);
-
-    const product = new Product({
-      name,
-      description,
-      price,
-      image,
-      category,
-      brand,
-      countInStock,
-    });
-
-    await product.save();
-    res.status(201).json(product);
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-});
+// Admin routes
+productRouter.post("/addProduct", protect, admin, addProduct);
+productRouter.put("/:id", protect, admin, updateProduct);
+productRouter.delete("/:id", protect, admin, deleteProduct);
 
 export default productRouter;
