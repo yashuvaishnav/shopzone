@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 text-2xl font-bold text-indigo-600">
-            <Link to="/">ShopNow</Link>
+            <Link to="/">ShopZone</Link>
           </div>
 
           {/* Desktop Links */}
