@@ -8,6 +8,7 @@ import ElectoricBanner from "../assets/ElectronicBanner.jpg";
 import GirlCasualFashionImage from "../assets/GirlCasualFashionImage.webp";
 import GirlsFashionImage from "../assets/GirlsFashionImage.jpg";
 import Headphone from "../assets/Headphone.jpg";
+import { Footer } from "../components/Footer";
 
 const bannerImages = [
   GirlCasualFashionImage,
@@ -153,6 +154,7 @@ const Products: React.FC = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
