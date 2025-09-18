@@ -1,5 +1,5 @@
-## shopzone
-# 🛒 MERN E-commerce (React + Redux + TypeScript + Tailwind + Express + MongoDB)
+# shopzone
+## 🛒 MERN E-commerce (React + Redux + TypeScript + Tailwind + Express + MongoDB)
 
 A full-stack **E-commerce web application** built with the MERN stack, TypeScript, and Redux Toolkit.  
 This project is created for practice and learning full-stack development end-to-end.
