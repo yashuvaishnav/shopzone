@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ShoppingCart, Star, ArrowRight } from "lucide-react";
+import { ShoppingCart, Star, ArrowRight, Timer, Shield, Headphones, Truck } from "lucide-react";
 
 // Dummy products
 const products = [
@@ -12,18 +12,19 @@ const products = [
   { id: 4, name: "Smartphone", price: "$599", img: "https://picsum.photos/300/200?4" },
 ];
 
+// Categories
+const categories = [
+  { id: 1, name: "Electronics", img: "https://picsum.photos/200/200?11" },
+  { id: 2, name: "Fashion", img: "https://picsum.photos/200/200?12" },
+  { id: 3, name: "Home", img: "https://picsum.photos/200/200?13" },
+  { id: 4, name: "Fitness", img: "https://picsum.photos/200/200?14" },
+];
+
 // Slider images
 const slides = [
-  // Fashion / Clothes
-  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
-  
-  "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80",
-  // Smartphones
-  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
-  
-  // Laptop
-  
-  // Watch
+  "https://picsum.photos/1200/500?5",
+  "https://picsum.photos/1200/500?6",
+  "https://picsum.photos/1200/500?7",
 ];
 
 export default function HomePage() {
@@ -66,6 +67,50 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Categories Section */}
+      <section className="py-12 px-6">
+        <motion.h2
+          className="text-3xl font-bold text-center mb-8"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          Shop by Category
+        </motion.h2>
+        <div className="grid gap-6 grid-cols-2 sm:grid-cols-4">
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.id}
+              className="bg-white shadow-md rounded-xl overflow-hidden cursor-pointer hover:shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+            >
+              <img src={cat.img} alt={cat.name} className="w-full h-32 object-cover" />
+              <h3 className="text-center py-3 font-semibold">{cat.name}</h3>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Deal of the Day */}
+      <section className="bg-red-600 text-white py-12 text-center">
+        <motion.h2
+          className="text-3xl font-bold mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Deal of the Day 🎉
+        </motion.h2>
+        <p className="mb-6">Get the <span className="font-semibold">Smart Watch</span> for only <span className="font-bold">$149</span></p>
+        <div className="flex justify-center items-center gap-6 text-lg font-mono">
+          <Timer /> <span>02 : 15 : 43 left</span>
+        </div>
+        <button className="mt-6 px-6 py-2 bg-white text-red-600 font-semibold rounded-lg hover:bg-gray-100">
+          Shop Now
+        </button>
+      </section>
+
       {/* Products Section */}
       <section className="py-12 px-6">
         <motion.h2
@@ -91,6 +136,37 @@ export default function HomePage() {
               <button className="mt-3 flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
                 <ShoppingCart size={18} /> Add to Cart
               </button>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-gray-100 py-12 px-6">
+        <motion.h2
+          className="text-3xl font-bold text-center mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Why Shop With Us?
+        </motion.h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center">
+          {[
+            { icon: <Truck size={40} />, title: "Free Shipping" },
+            { icon: <Shield size={40} />, title: "Secure Payments" },
+            { icon: <Headphones size={40} />, title: "24/7 Support" },
+            { icon: <Star size={40} />, title: "Top Quality" },
+          ].map((f, i) => (
+            <motion.div
+              key={i}
+              className="bg-white p-6 rounded-xl shadow-md"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+            >
+              <div className="flex justify-center text-blue-600 mb-3">{f.icon}</div>
+              <h3 className="font-semibold">{f.title}</h3>
             </motion.div>
           ))}
         </div>
@@ -148,6 +224,9 @@ export default function HomePage() {
           </button>
         </div>
       </section>
+
+      {/* Footer */}
+      
     </div>
   );
 }
